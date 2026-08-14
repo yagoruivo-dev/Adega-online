@@ -1,5 +1,6 @@
-console.log('JS DA ADEGA CARREGOU');
 const carrinho = [];
+
+document.addEventListener('DOMContentLoaded', () => {
 
 const produtos = document.querySelectorAll('.produto');
 const itensCarrinho = document.querySelector('.itens-carrinho');
@@ -265,4 +266,6 @@ botoesCategoria.forEach(botao => {
       }
     });
   });
+});
+
 });
