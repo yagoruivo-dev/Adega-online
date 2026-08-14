@@ -184,3 +184,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('CARRINHO NOVO FUNCIONANDO');
 });
+
+/* FINALIZAR PEDIDO */
+const finalizarNovo = document.querySelector('#finalizar-novo');
+const checkoutModal = document.querySelector('.checkout-modal');
+
+if (finalizarNovo && checkoutModal) {
+  finalizarNovo.addEventListener('click', () => {
+
+    if (carrinhoNovo.length === 0) {
+      alert('Carrinho vazio!');
+      return;
+    }
+
+    const subtotal = carrinhoNovo.reduce(
+      (total, item) => total + item.preco * item.quantidade,
+      0
+    );
+
+    const total = subtotal + 5;
+
+    const checkoutTotal = document.querySelector('#checkout-total');
+    const checkoutEntrega = document.querySelector('#checkout-entrega');
+
+    if (checkoutEntrega) {
+      checkoutEntrega.textContent =
+        'R$ 5,00';
+    }
+
+    if (checkoutTotal) {
+      checkoutTotal.textContent =
+        'R$ ' + total.toFixed(2).replace('.', ',');
+    }
+
+    checkoutModal.classList.add('aberto');
+  });
+}
