@@ -185,12 +185,20 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('CARRINHO NOVO FUNCIONANDO');
 });
 
-/* FINALIZAR PEDIDO */
-const finalizarNovo = document.querySelector('#finalizar-novo');
-const checkoutModal = document.querySelector('.checkout-modal');
 
-if (finalizarNovo && checkoutModal) {
-  finalizarNovo.addEventListener('click', () => {
+/* FINALIZAR PEDIDO - NOVO */
+document.addEventListener('DOMContentLoaded', () => {
+  const finalizarNovo = document.querySelector('#finalizar-novo');
+  const checkoutModal = document.querySelector('.checkout-modal');
+
+  if (!finalizarNovo) {
+    console.error('BOTAO FINALIZAR NAO ENCONTRADO');
+    return;
+  }
+
+  finalizarNovo.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
     if (carrinhoNovo.length === 0) {
       alert('Carrinho vazio!');
@@ -208,8 +216,7 @@ if (finalizarNovo && checkoutModal) {
     const checkoutEntrega = document.querySelector('#checkout-entrega');
 
     if (checkoutEntrega) {
-      checkoutEntrega.textContent =
-        'R$ 5,00';
+      checkoutEntrega.textContent = 'R$ 5,00';
     }
 
     if (checkoutTotal) {
@@ -217,6 +224,12 @@ if (finalizarNovo && checkoutModal) {
         'R$ ' + total.toFixed(2).replace('.', ',');
     }
 
-    checkoutModal.classList.add('aberto');
+    if (checkoutModal) {
+      checkoutModal.classList.add('aberto');
+    } else {
+      console.error('CHECKOUT MODAL NAO ENCONTRADO');
+    }
+
+    console.log('FINALIZAR PEDIDO CLICADO');
   });
-}
+});
