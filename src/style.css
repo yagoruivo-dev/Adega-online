@@ -388,3 +388,56 @@ body {
   opacity: 1 !important;
 }
 
+
+/* CORREÇÃO DEFINITIVA DO TEXTO DO CHECKOUT */
+.checkout-caixa {
+  color: #000 !important;
+}
+
+.checkout-caixa h2 {
+  color: #000 !important;
+}
+
+.checkout-caixa label {
+  color: #000 !important;
+}
+
+.checkout-caixa .checkout-subtitulo {
+  color: #333 !important;
+}
+
+.checkout-caixa input,
+.checkout-caixa select,
+.checkout-caixa textarea {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+  background-color: #fff !important;
+}
+
+.checkout-caixa input::placeholder,
+.checkout-caixa textarea::placeholder {
+  color: #555 !important;
+  -webkit-text-fill-color: #555 !important;
+}
+
+.resumo-checkout {
+  color: #000 !important;
+}
+
+.resumo-checkout span,
+.resumo-checkout strong {
+  color: #000 !important;
+}
+
+.checkout-total {
+  color: #000 !important;
+}
+
+.checkout-total span,
+.checkout-total strong,
+#checkout-total,
+#checkout-entrega {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
