@@ -1,0 +1,86 @@
+const carrinho = [];
+
+const produtos = document.querySelectorAll('.produto');
+const itensCarrinho = document.querySelector('.itens-carrinho');
+const totalCarrinho = document.querySelector('.total-carrinho');
+const contadorCarrinho = document.querySelector('.contador-carrinho');
+const botaoCarrinho = document.querySelector('.carrinho');
+const modal = document.querySelector('.carrinho-modal');
+const fecharCarrinho = document.querySelector('.fechar-carrinho');
+const finalizarPedido = document.querySelector('.finalizar-pedido');
+
+function atualizarCarrinho() {
+  itensCarrinho.innerHTML = '';
+
+  let total = 0;
+
+  carrinho.forEach(item => {
+    total += item.preco;
+
+    const div = document.createElement('div');
+    div.textContent = item.nome + ' - R$ ' + item.preco.toFixed(2);
+    itensCarrinho.appendChild(div);
+  });
+
+  totalCarrinho.textContent = 'Total: R$ ' + total.toFixed(2);
+  contadorCarrinho.textContent = carrinho.length;
+}
+
+produtos.forEach(produto => {
+  produto.querySelector('.adicionar').addEventListener('click', () => {
+    const nome = produto.querySelector('h3').textContent;
+    const preco = Number(
+      produto.querySelector('.preco').textContent
+        .replace('R$', '')
+        .replace(',', '.')
+    );
+
+    carrinho.push({ nome, preco });
+    atualizarCarrinho();
+  });
+});
+
+botaoCarrinho.addEventListener('click', () => {
+  modal.classList.add('aberto');
+});
+
+fecharCarrinho.addEventListener('click', () => {
+  modal.classList.remove('aberto');
+});
+
+finalizarPedido.addEventListener('click', () => {
+  if (carrinho.length === 0) {
+    alert('Carrinho vazio!');
+    return;
+  }
+
+  const endereco = prompt('Digite seu endereço completo:');
+  if (!endereco) return;
+
+  const pagamento = prompt('Forma de pagamento: Pix, Cartão ou Dinheiro');
+  if (!pagamento) return;
+
+  let troco = 'Não precisa';
+
+  if (pagamento.toLowerCase().includes('dinheiro')) {
+    troco = prompt('Precisa de troco? Para quanto?') || 'Não precisa';
+  }
+
+  let mensagem = 'PEDIDO - ADEGA PANICO MIL GRAU\n\n';
+
+  let total = 0;
+
+  carrinho.forEach(item => {
+    total += item.preco;
+    mensagem += '- ' + item.nome + ' - R$ ' + item.preco.toFixed(2) + '\n';
+  });
+
+  mensagem += '\nTotal: R$ ' + total.toFixed(2);
+  mensagem += '\n\nEndereço: ' + endereco;
+  mensagem += '\nPagamento: ' + pagamento;
+  mensagem += '\nTroco: ' + troco;
+
+  const url = 'https://wa.me/5515992371760?text=' + encodeURIComponent(mensagem);
+
+  window.open(url, '_blank');
+});

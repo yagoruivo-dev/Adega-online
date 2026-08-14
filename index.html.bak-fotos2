@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adega Pânico Mil Grau</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🍺 Adega Pânico Mil Grau</div>
+  <p>Boituva - SP</p>
+</header>
+
+<button class="carrinho" aria-label="Abrir carrinho">
+  🛒 <span class="contador-carrinho">0</span>
+</button>
+
+<div class="carrinho-modal">
+  <div class="carrinho-caixa">
+    <button class="fechar-carrinho">X</button>
+    <h2>Seu carrinho</h2>
+    <div class="itens-carrinho"></div>
+    <div class="total-carrinho">Total: R$ 0,00</div>
+    <button class="finalizar-pedido">Finalizar pedido</button>
+  </div>
+</div>
+
+<main>
+  <section class="banner">
+    <h1>Bebidas geladas na sua porta!</h1>
+    <p>Faça seu pedido online na Adega Pânico Mil Grau.</p>
+  </section>
+
+  <section class="produtos">
+    <h2>Produtos</h2>
+
+    <div class="produtos-grid">
+
+      <article class="produto">
+        <img class="produto-foto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Brahma_chopp_lata.jpg/320px-Brahma_chopp_lata.jpg" alt="Cerveja Brahma">
+        <h3>Cerveja Brahma</h3>
+        <p class="preco">R$ 10,00</p>
+        <button class="adicionar">Adicionar ao carrinho</button>
+      </article>
+
+      <article class="produto">
+        <img class="produto-foto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Heineken_beer.jpg/320px-Heineken_beer.jpg" alt="Cerveja Heineken">
+        <h3>Heineken</h3>
+        <p class="preco">R$ 12,00</p>
+        <button class="adicionar">Adicionar ao carrinho</button>
+      </article>
+
+      <article class="produto">
+        <img class="produto-foto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Johnnie_Walker_Black_Label.jpg/320px-Johnnie_Walker_Black_Label.jpg" alt="Whisky">
+        <h3>Whisky</h3>
+        <p class="preco">R$ 59,90</p>
+        <button class="adicionar">Adicionar ao carrinho</button>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

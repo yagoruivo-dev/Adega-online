@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adega Pânico Mil Grau</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="logo">🍺 Adega Pânico Mil Grau</div>
+  <p>Boituva - SP</p>
+</header>
+
+<button class="carrinho" aria-label="Abrir carrinho">
+  🛒 <span class="contador-carrinho">0</span>
+</button>
+
+<div class="checkout-modal">
+  <div class="checkout-caixa">
+    <button class="fechar-checkout" type="button">X</button>
+
+    <h2>Finalizar pedido</h2>
+    <p class="checkout-subtitulo">Preencha seus dados para receber o pedido.</p>
+
+    <label>
+      Nome completo
+      <input type="text" id="nome-cliente" placeholder="Seu nome" autocomplete="name">
+    </label>
+
+    <label>
+      WhatsApp
+      <input type="tel" id="telefone-cliente" placeholder="(15) 99999-9999" autocomplete="tel">
+    </label>
+
+    <label>
+      Endereço completo
+      <textarea id="endereco-cliente" placeholder="Rua, número, bairro..."></textarea>
+    </label>
+
+    <label>
+      Forma de pagamento
+      <select id="pagamento-cliente">
+        <option value="">Selecione</option>
+        <option value="Pix">Pix</option>
+        <option value="Cartão">Cartão</option>
+        <option value="Dinheiro">Dinheiro</option>
+      </select>
+    </label>
+
+    <label id="campo-troco" class="campo-troco">
+      Troco para quanto?
+      <input type="text" id="troco-cliente" placeholder="Ex.: R$ 100,00">
+    </label>
+
+    <div class="resumo-checkout">
+      <div>
+        <span>Entrega</span>
+        <strong id="checkout-entrega">R$ 5,00</strong>
+      </div>
+
+      <div class="checkout-total">
+        <span>Total</span>
+        <strong id="checkout-total">R$ 0,00</strong>
+      </div>
+    </div>
+
+    <button class="enviar-whatsapp" type="button">
+      📲 Enviar pedido pelo WhatsApp
+    </button>
+  </div>
+</div>
+
+<div class="carrinho-modal">
+  <div class="carrinho-caixa">
+    <button class="fechar-carrinho">X</button>
+    <h2>Seu carrinho</h2>
+    <div class="itens-carrinho"></div>
+    <div class="total-carrinho">Total: R$ 0,00</div>
+    <button class="finalizar-pedido">Finalizar pedido</button>
+  </div>
+</div>
+
+<main>
+  <section class="banner">
+    <h1>Bebidas geladas na sua porta!</h1>
+    <p>Faça seu pedido online na Adega Pânico Mil Grau.</p>
+  </section>
+
+  <section class="categorias">
+  <h2>Categorias</h2>
+  <div class="categorias-grid">
+    <button class="categoria ativo" data-categoria="todos">🔥 Todos</button>
+    <button class="categoria" data-categoria="cervejas">🍺 Cervejas</button>
+    <button class="categoria" data-categoria="destilados">🥃 Destilados</button>
+    <button class="categoria" data-categoria="refrigerantes">🥤 Refrigerantes</button>
+    <button class="categoria" data-categoria="energeticos">⚡ Energéticos</button>
+    <button class="categoria" data-categoria="drinks">🍹 Bebidas</button>
+    <button class="categoria" data-categoria="tabacaria">🔥 Tabacaria</button>
+    <button class="categoria" data-categoria="gelo">🧊 Gelo</button>
+    <button class="categoria" data-categoria="copoes">🥤 Copões</button>
+  </div>
+</section>
+
+<section class="produtos">
+    <h2>Produtos</h2>
+
+    <div class="produtos-grid">
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Heineken</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 12,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Brahma</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 10,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Skol</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 10,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Petra</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 10,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Original</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 10,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Budweiser</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 10,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Lokal</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 10,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+<article class="produto" data-categoria="cervejas">
+  <div class="produto-foto-area">🍺</div>
+  <span class="produto-categoria">CERVEJA</span>
+  <h3>Itaipava</h3>
+  <p class="descricao">Cerveja gelada</p>
+  <div class="produto-bottom">
+    <strong class="preco">R$ 10,00</strong>
+    <button class="adicionar">+</button>
+  </div>
+</article>
+
+
+
+      <article class="produto">
+        <img class="produto-foto" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Lata_de_Brahma.jpg" alt="Cerveja Brahma">
+        <h3>Cerveja Brahma</h3>
+        <p class="preco">R$ 10,00</p>
+        <button class="adicionar">Adicionar ao carrinho</button>
+      </article>
+
+      <article class="produto">
+        <img class="produto-foto" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Heineken_-_Can_-_Canette.jpg" alt="Cerveja Heineken">
+        <h3>Heineken</h3>
+        <p class="preco">R$ 12,00</p>
+        <button class="adicionar">Adicionar ao carrinho</button>
+      </article>
+
+      <article class="produto">
+        <img class="produto-foto" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Johnnie_Walker_Black_Label.jpg" alt="Whisky">
+        <h3>Whisky</h3>
+        <p class="preco">R$ 59,90</p>
+        <button class="adicionar">Adicionar ao carrinho</button>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

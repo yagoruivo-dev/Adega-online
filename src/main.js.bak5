@@ -1,0 +1,199 @@
+const carrinho = [];
+
+const produtos = document.querySelectorAll('.produto');
+const itensCarrinho = document.querySelector('.itens-carrinho');
+const totalCarrinho = document.querySelector('.total-carrinho');
+const contadorCarrinho = document.querySelector('.contador-carrinho');
+const botaoCarrinho = document.querySelector('.carrinho');
+const modal = document.querySelector('.carrinho-modal');
+const fecharCarrinho = document.querySelector('.fechar-carrinho');
+const finalizarPedido = document.querySelector('.finalizar-pedido');
+
+function atualizarCarrinho() {
+  itensCarrinho.innerHTML = '';
+
+  let total = 0;
+  let quantidadeTotal = 0;
+
+  carrinho.forEach((item, index) => {
+    const subtotal = item.preco * item.quantidade;
+
+    total += subtotal;
+    quantidadeTotal += item.quantidade;
+
+    const div = document.createElement('div');
+    div.className = 'item-carrinho';
+
+    div.innerHTML = `
+      <div class="item-carrinho-info">
+        <strong>${item.nome}</strong>
+        <span>R$ ${item.preco.toFixed(2)} cada</span>
+      </div>
+
+      <div class="quantidade-carrinho">
+        <button data-acao="diminuir" data-index="${index}">−</button>
+        <strong>${item.quantidade}</strong>
+        <button data-acao="aumentar" data-index="${index}">+</button>
+        <button data-acao="remover" data-index="${index}">🗑️</button>
+      </div>
+
+      <strong>Subtotal: R$ ${subtotal.toFixed(2)}</strong>
+    `;
+
+    itensCarrinho.appendChild(div);
+  });
+
+  totalCarrinho.textContent = 'Total: R$ ' + total.toFixed(2);
+  contadorCarrinho.textContent = quantidadeTotal;
+}
+
+produtos.forEach(produto => {
+  const botaoAdicionar = produto.querySelector('.adicionar');
+
+  botaoAdicionar.addEventListener('click', () => {
+    const nome = produto.querySelector('h3').textContent.trim();
+
+    const preco = Number(
+      produto.querySelector('.preco').textContent
+        .replace('R$', '')
+        .replace(/\./g, '')
+        .replace(',', '.')
+        .trim()
+    );
+
+    const itemExistente = carrinho.find(item => item.nome === nome);
+
+    if (itemExistente) {
+      itemExistente.quantidade++;
+    } else {
+      carrinho.push({
+        nome,
+        preco,
+        quantidade: 1
+      });
+    }
+
+    atualizarCarrinho();
+  });
+});
+
+itensCarrinho.addEventListener('click', event => {
+  const botao = event.target.closest('button');
+
+  if (!botao) return;
+
+  const index = Number(botao.dataset.index);
+  const acao = botao.dataset.acao;
+
+  if (!carrinho[index]) return;
+
+  if (acao === 'aumentar') {
+    carrinho[index].quantidade++;
+  }
+
+  if (acao === 'diminuir') {
+    carrinho[index].quantidade--;
+
+    if (carrinho[index].quantidade <= 0) {
+      carrinho.splice(index, 1);
+    }
+  }
+
+  if (acao === 'remover') {
+    carrinho.splice(index, 1);
+  }
+
+  atualizarCarrinho();
+});
+
+botaoCarrinho.addEventListener('click', () => {
+  modal.classList.add('aberto');
+});
+
+fecharCarrinho.addEventListener('click', () => {
+  modal.classList.remove('aberto');
+});
+
+finalizarPedido.addEventListener('click', () => {
+  if (carrinho.length === 0) {
+    alert('Carrinho vazio!');
+    return;
+  }
+
+  const nomeCliente = prompt('Digite seu nome completo:');
+  if (!nomeCliente) return;
+
+  const telefoneCliente = prompt('Digite seu telefone com DDD:');
+  if (!telefoneCliente) return;
+
+  const endereco = prompt('Digite seu endereço completo:');
+  if (!endereco) return;
+
+  const taxaTexto = prompt('Taxa de entrega em R$:', '0,00');
+  if (taxaTexto === null) return;
+
+  const taxaEntrega = Number(
+    taxaTexto
+      .replace('R$', '')
+      .replace(/\./g, '')
+      .replace(',', '.')
+      .trim()
+  );
+
+  if (!Number.isFinite(taxaEntrega) || taxaEntrega < 0) {
+    alert('Taxa de entrega inválida!');
+    return;
+  }
+
+  const pagamento = prompt(
+    'Forma de pagamento:\n\nPix\nCartão\nDinheiro'
+  );
+
+  if (!pagamento) return;
+
+  let troco = 'Não precisa';
+
+  if (pagamento.toLowerCase().includes('dinheiro')) {
+    troco = prompt('Precisa de troco? Para quanto?') || 'Não precisa';
+  }
+
+  let subtotal = 0;
+
+  let mensagem = 'PEDIDO - ADEGA PANICO MIL GRAU\n\n';
+
+  mensagem += 'CLIENTE\n';
+  mensagem += 'Nome: ' + nomeCliente + '\n';
+  mensagem += 'Telefone: ' + telefoneCliente + '\n';
+  mensagem += 'Endereço: ' + endereco + '\n\n';
+
+  mensagem += 'PRODUTOS\n';
+
+  carrinho.forEach(item => {
+    const valor = item.preco * item.quantidade;
+
+    subtotal += valor;
+
+    mensagem +=
+      item.quantidade +
+      'x ' +
+      item.nome +
+      ' - R$ ' +
+      valor.toFixed(2) +
+      '\n';
+  });
+
+  const total = subtotal + taxaEntrega;
+
+  mensagem += '\nSubtotal: R$ ' + subtotal.toFixed(2);
+  mensagem += '\nEntrega: R$ ' + taxaEntrega.toFixed(2);
+  mensagem += '\nTOTAL: R$ ' + total.toFixed(2);
+  mensagem += '\n\nPagamento: ' + pagamento;
+  mensagem += '\nTroco: ' + troco;
+
+  const url =
+    'https://wa.me/5515992371760?text=' +
+    encodeURIComponent(mensagem);
+
+  window.open(url, '_blank');
+});
+

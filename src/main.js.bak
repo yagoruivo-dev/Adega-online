@@ -1,0 +1,150 @@
+const carrinho = []; const produtos = 
+document.querySelectorAll(".produto"); const 
+botaoCarrinho = document.querySelector(".carrinho"); 
+const modal = 
+document.querySelector(".carrinho-modal"); const 
+fecharCarrinho = 
+document.querySelector(".fechar-carrinho"); const 
+itensCarrinho = 
+document.querySelector(".itens-carrinho"); const 
+totalCarrinho = 
+document.querySelector(".total-carrinho"); const 
+finalizarPedido = 
+document.querySelector(".finalizar-pedido"); const 
+contadorCarrinho = 
+document.querySelector(".contador-carrinho"); const 
+pedidoModal = 
+document.querySelector("#pedido-modal"); const 
+fecharPedido = 
+document.querySelector(".fechar-pedido"); const 
+enviarPedido = 
+document.querySelector("#enviar-pedido"); const 
+pagamento = 
+document.querySelector("#pedido-pagamento"); const 
+campoTroco = document.querySelector("#campo-troco"); 
+produtos.forEach(function(produto) {
+  const botao = produto.querySelector(".adicionar"); 
+  const nome = 
+  produto.querySelector("h3").textContent.trim(); 
+  botao.addEventListener("click", function() {
+    let item = carrinho.find(function(p) { return 
+      p.nome === nome;
+    });
+    if (item) { item.quantidade++;
+    } else {
+      carrinho.push({ nome: nome, preco: 10, 
+        quantidade: 1
+      });
+    }
+    atualizarCarrinho();
+  });
+});
+function atualizarCarrinho() { 
+  itensCarrinho.innerHTML = ""; let total = 0; let 
+  quantidadeTotal = 0; 
+  carrinho.forEach(function(item, index) {
+    const subtotal = item.preco * item.quantidade; 
+    total += subtotal; quantidadeTotal += 
+    item.quantidade; const div = 
+    document.createElement("div"); div.className = 
+    "item-carrinho"; div.innerHTML =
+      "<strong>" + item.nome + "</strong>" + "<br>R$ 
+      " + subtotal.toFixed(2) + "<br>" + "<button 
+      data-acao='menos' data-index='" + index + 
+      "'>-</button>" + " " + item.quantidade + " " + 
+      "<button data-acao='mais' data-index='" + 
+      index + "'>+</button>";
+      
+    itensCarrinho.appendChild(div);
+  });
+  totalCarrinho.textContent = "Total: R$ " + 
+    total.toFixed(2);
+  contadorCarrinho.textContent = quantidadeTotal;
+}
+itensCarrinho.addEventListener("click", 
+function(evento) {
+  if (evento.target.tagName !== "BUTTON") { return;
+  }
+  const index = Number(evento.target.dataset.index); 
+  if (evento.target.dataset.acao === "mais") {
+    carrinho[index].quantidade++;
+  }
+  if (evento.target.dataset.acao === "menos") { 
+    carrinho[index].quantidade--; if 
+    (carrinho[index].quantidade <= 0) {
+      carrinho.splice(index, 1);
+    }
+  }
+  atualizarCarrinho();
+});
+botaoCarrinho.addEventListener("click", function() { 
+  atualizarCarrinho(); 
+  modal.classList.add("aberto");
+});
+fecharCarrinho.addEventListener("click", function() 
+{
+  modal.classList.remove("aberto");
+});
+finalizarPedido.addEventListener("click", function() 
+{
+  if (carrinho.length === 0) { alert("Carrinho 
+    vazio!"); return;
+  }
+  modal.classList.remove("aberto"); 
+  pedidoModal.classList.add("aberto");
+});
+fecharPedido.addEventListener("click", function() { 
+  pedidoModal.classList.remove("aberto");
+});
+pagamento.addEventListener("change", function() { if 
+  (pagamento.value === "Dinheiro") {
+    campoTroco.style.display = "block";
+  } else {
+    campoTroco.style.display = "none";
+  }
+});
+enviarPedido.addEventListener("click", function() { 
+  const nome =
+    document.querySelector("#pedido-nome").value.trim(); 
+  const endereco =
+    document.querySelector("#pedido-endereco").value.trim(); 
+  const numero =
+    document.querySelector("#pedido-numero").value.trim(); 
+  const telefone =
+    document.querySelector("#pedido-telefone").value.trim(); 
+  const formaPagamento =
+    pagamento.value; const troco = 
+    document.querySelector("#pedido-troco").value.trim();
+  const observacao = 
+    document.querySelector("#pedido-observacao").value.trim();
+  if (!nome || !endereco || !numero ||
+      !telefone || !formaPagamento) {
+    alert("Preencha todos os campos obrigatorios."); 
+    return;
+  }
+  if (formaPagamento === "Dinheiro" && !troco) { 
+    alert("Informe o valor do troco."); return;
+  }
+  let mensagem = "PEDIDO - ADEGA PANICO MIL 
+    GRAU\n\n";
+  let total = 0; carrinho.forEach(function(item, 
+  index) {
+    const subtotal = item.preco * item.quantidade; 
+    mensagem +=
+      (index + 1) + " - " + item.nome + " x" + 
+      item.quantidade + " - R$ " + 
+      subtotal.toFixed(2) + "\n";
+    total += subtotal;
+  });
+  mensagem += "\nTOTAL: R$ " + total.toFixed(2); 
+  mensagem +=
+    "\nPagamento: " + formaPagamento; if 
+  (formaPagamento === "Dinheiro") {
+    mensagem += "\nTroco para: R$ " + troco;
+  }
+  mensagem += "\n\nNome: " + nome; mensagem += 
+    "\nEndereco: " + endereco + ", " + numero;
+  mensagem += "\nBoituva - SP"; mensagem += 
+    "\nTelefone: " + telefone;
+  if (observacao) { mensagem += "\nObservacao: " +
+      obs
