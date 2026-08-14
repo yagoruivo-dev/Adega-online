@@ -12,6 +12,7 @@ const fecharCarrinho = document.querySelector('.fechar-carrinho');
 const finalizarPedido = document.querySelector('.finalizar-pedido');
 
 function atualizarCarrinho() {
+  console.log('ATUALIZANDO CARRINHO:', carrinho);
   if (!itensCarrinho || !totalCarrinho || !contadorCarrinho) return;
 
   itensCarrinho.innerHTML = '';
@@ -45,6 +46,7 @@ function atualizarCarrinho() {
     `;
 
     itensCarrinho.appendChild(div);
+    console.log('ITEM INSERIDO:', div.outerHTML);
   });
 
   totalCarrinho.textContent = 'Total: R$ ' + total.toFixed(2);
