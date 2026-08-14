@@ -547,3 +547,67 @@ body {
   color: #111 !important;
 }
 
+
+/* BOTÕES DE QUANTIDADE DO CARRINHO */
+.carrinho-modal .quantidade-carrinho {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.carrinho-modal .quantidade-carrinho button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  background: #7b2cff !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+}
+
+.carrinho-modal .quantidade-carrinho strong {
+  min-width: 25px !important;
+  text-align: center !important;
+  font-size: 18px !important;
+  color: #111 !important;
+}
+
+
+/* BOTÕES DE QUANTIDADE DO CARRINHO */
+.carrinho-modal .quantidade-carrinho {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.carrinho-modal .quantidade-carrinho button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  background: #7b2cff !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+}
+
+.carrinho-modal .quantidade-carrinho strong {
+  min-width: 25px !important;
+  text-align: center !important;
+  font-size: 18px !important;
+  color: #111 !important;
+}
+
