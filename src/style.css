@@ -511,3 +511,39 @@ body {
   justify-content: space-between !important;
 }
 
+
+.carrinho-modal,
+.carrinho-modal * {
+  color: #111 !important;
+}
+
+.carrinho-modal {
+  background: rgba(0, 0, 0, 0.75) !important;
+}
+
+.carrinho-caixa {
+  background: #ffffff !important;
+}
+
+.itens-carrinho {
+  color: #111 !important;
+}
+
+.item-carrinho {
+  color: #111 !important;
+  background: #ffffff !important;
+}
+
+.item-carrinho strong,
+.item-carrinho span {
+  color: #111 !important;
+}
+
+.resumo-linha {
+  color: #111 !important;
+}
+
+.resumo-total {
+  color: #111 !important;
+}
+
