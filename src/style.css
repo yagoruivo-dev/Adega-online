@@ -572,3 +572,54 @@ body {
   text-align: center !important;
 }
 
+
+/* ===== CONTROLES DO CARRINHO - VERSÃO FINAL ===== */
+
+.carrinho-modal .quantidade-carrinho {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.carrinho-modal .quantidade-carrinho button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #000 !important;
+  border-radius: 8px !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 25px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.carrinho-modal .quantidade-carrinho button::after {
+  content: none !important;
+}
+
+.carrinho-modal .quantidade-carrinho strong {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 28px !important;
+  color: #000 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+.carrinho-modal .quantidade-carrinho button[data-acao="remover"] {
+  font-size: 20px !important;
+}
+
