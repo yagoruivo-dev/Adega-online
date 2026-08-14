@@ -204,6 +204,13 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     event.stopPropagation();
 
+    // Fecha o carrinho novo antes de abrir o checkout
+    const carrinhoModal = document.querySelector('#carrinho-novo');
+    if (carrinhoModal) {
+      carrinhoModal.classList.remove('aberto');
+      carrinhoModal.style.display = 'none';
+    }
+
     if (carrinhoNovo.length === 0) {
       alert('Carrinho vazio!');
       return;
