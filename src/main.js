@@ -13,7 +13,6 @@ const finalizarPedido = document.querySelector('.finalizar-pedido');
 
 function atualizarCarrinho() {
   console.log('ATUALIZANDO CARRINHO:', carrinho);
-  if (!itensCarrinho || !totalCarrinho || !contadorCarrinho) return;
 
   itensCarrinho.innerHTML = '';
 
@@ -32,24 +31,25 @@ function atualizarCarrinho() {
     div.innerHTML = `
       <div class="item-carrinho-info">
         <strong>${item.nome}</strong>
-        <span>R$ ${item.preco.toFixed(2)} cada</span>
+        <span>R$ ${item.preco.toFixed(2).replace('.', ',')} cada</span>
       </div>
 
       <div class="quantidade-carrinho">
-        <button data-acao="diminuir" data-index="${index}">−</button>
+        <button type="button" data-acao="diminuir" data-index="${index}">−</button>
         <strong>${item.quantidade}</strong>
-        <button data-acao="aumentar" data-index="${index}">+</button>
-        <button data-acao="remover" data-index="${index}">🗑️</button>
+        <button type="button" data-acao="aumentar" data-index="${index}">+</button>
+        <button type="button" data-acao="remover" data-index="${index}">🗑️</button>
       </div>
 
-      <strong>Subtotal: R$ ${subtotal.toFixed(2)}</strong>
+      <strong>Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}</strong>
     `;
 
     itensCarrinho.appendChild(div);
-    console.log('ITEM INSERIDO:', div.outerHTML);
   });
 
-  totalCarrinho.textContent = 'Total: R$ ' + total.toFixed(2);
+  totalCarrinho.textContent =
+    'Total: R$ ' + total.toFixed(2).replace('.', ',');
+
   contadorCarrinho.textContent = quantidadeTotal;
 }
 
