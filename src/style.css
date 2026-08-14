@@ -475,3 +475,39 @@ body {
   font-size: 14px;
 }
 
+
+/* CORREÇÃO VISIBILIDADE DOS ITENS DO CARRINHO */
+.carrinho-modal .itens-carrinho {
+  display: block !important;
+  width: 100% !important;
+  min-height: 20px !important;
+  color: #111 !important;
+  background: #fff !important;
+}
+
+.carrinho-modal .item-carrinho {
+  display: block !important;
+  width: 100% !important;
+  min-height: 80px !important;
+  color: #111 !important;
+  background: #fff !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.carrinho-modal .item-carrinho strong,
+.carrinho-modal .item-carrinho span {
+  color: #111 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.carrinho-modal .item-carrinho-topo,
+.carrinho-modal .item-carrinho-baixo {
+  display: flex !important;
+}
+
+.carrinho-modal .item-carrinho-topo {
+  justify-content: space-between !important;
+}
+
