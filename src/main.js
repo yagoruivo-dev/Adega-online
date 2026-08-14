@@ -12,12 +12,22 @@ const fecharCarrinho = document.querySelector('.fechar-carrinho');
 const finalizarPedido = document.querySelector('.finalizar-pedido');
 
 function atualizarCarrinho() {
-  console.log('ATUALIZANDO CARRINHO:', carrinho);
+  if (!itensCarrinho || !totalCarrinho || !contadorCarrinho) return;
 
   itensCarrinho.innerHTML = '';
 
   let total = 0;
   let quantidadeTotal = 0;
+
+  if (carrinho.length === 0) {
+    itensCarrinho.innerHTML = `
+      <div class="carrinho-vazio">
+        <div class="carrinho-vazio-icone">🛒</div>
+        <h3>Seu carrinho está vazio</h3>
+        <p>Adicione produtos para começar seu pedido.</p>
+      </div>
+    `;
+  }
 
   carrinho.forEach((item, index) => {
     const subtotal = item.preco * item.quantidade;
@@ -29,26 +39,53 @@ function atualizarCarrinho() {
     div.className = 'item-carrinho';
 
     div.innerHTML = `
-      <div class="item-carrinho-info">
-        <strong>${item.nome}</strong>
-        <span>R$ ${item.preco.toFixed(2).replace('.', ',')} cada</span>
+      <div class="item-carrinho-topo">
+        <div>
+          <strong>${item.nome}</strong>
+          <span>R$ ${item.preco.toFixed(2).replace('.', ',')} cada</span>
+        </div>
+
+        <strong class="item-subtotal">
+          R$ ${subtotal.toFixed(2).replace('.', ',')}
+        </strong>
       </div>
 
-      <div class="quantidade-carrinho">
-        <button type="button" data-acao="diminuir" data-index="${index}">−</button>
-        <strong>${item.quantidade}</strong>
-        <button type="button" data-acao="aumentar" data-index="${index}">+</button>
-        <button type="button" data-acao="remover" data-index="${index}">🗑️</button>
-      </div>
+      <div class="item-carrinho-baixo">
+        <div class="quantidade-carrinho">
+          <button type="button" data-acao="diminuir" data-index="${index}">−</button>
+          <strong>${item.quantidade}</strong>
+          <button type="button" data-acao="aumentar" data-index="${index}">+</button>
+        </div>
 
-      <strong>Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}</strong>
+        <button
+          type="button"
+          class="remover-item"
+          data-acao="remover"
+          data-index="${index}">
+          Remover
+        </button>
+      </div>
     `;
 
     itensCarrinho.appendChild(div);
   });
 
-  totalCarrinho.textContent =
-    'Total: R$ ' + total.toFixed(2).replace('.', ',');
+  totalCarrinho.innerHTML = `
+    <div class="resumo-linha">
+      <span>Produtos</span>
+      <strong>R$ ${total.toFixed(2).replace('.', ',')}</strong>
+    </div>
+
+    <div class="resumo-linha entrega">
+      <span>Entrega</span>
+      <strong>R$ 5,00</strong>
+    </div>
+
+    <div class="resumo-linha resumo-total">
+      <span>Total</span>
+      <strong>R$ ${(total + 5).toFixed(2).replace('.', ',')}</strong>
+    </div>
+  `;
 
   contadorCarrinho.textContent = quantidadeTotal;
 }
