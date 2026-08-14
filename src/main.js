@@ -151,6 +151,7 @@ itensCarrinho.addEventListener('click', event => {
 });
 
 botaoCarrinho.addEventListener('click', () => {
+  atualizarCarrinho();
   modal.classList.add('aberto');
 });
 
