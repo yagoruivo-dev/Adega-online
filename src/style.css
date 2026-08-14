@@ -611,3 +611,34 @@ body {
   color: #111 !important;
 }
 
+
+.carrinho-modal .quantidade-carrinho button {
+  background: #7b2cff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  text-shadow: 0 0 2px #000 !important;
+}
+
+.carrinho-modal .quantidade-carrinho button[data-acao="diminuir"]::after {
+  content: "−";
+  color: #ffffff !important;
+}
+
+.carrinho-modal .quantidade-carrinho button[data-acao="aumentar"]::after {
+  content: "+";
+  color: #ffffff !important;
+}
+
+.carrinho-modal .quantidade-carrinho button[data-acao="diminuir"],
+.carrinho-modal .quantidade-carrinho button[data-acao="aumentar"] {
+  font-size: 0 !important;
+}
+
+.carrinho-modal .quantidade-carrinho button::after {
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
