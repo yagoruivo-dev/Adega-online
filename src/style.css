@@ -623,3 +623,162 @@ body {
   font-size: 20px !important;
 }
 
+
+/* ===== CARRINHO NOVO ===== */
+
+.carrinho-novo {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: rgba(0, 0, 0, 0.75);
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.carrinho-novo.aberto {
+  display: flex;
+}
+
+.carrinho-novo-caixa {
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  color: #111;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+
+.carrinho-novo-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.carrinho-novo-topo h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+#fechar-carrinho-novo {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #eee;
+  color: #111;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carrinho-novo-vazio {
+  text-align: center;
+  padding: 35px 10px;
+  color: #777;
+}
+
+.carrinho-novo-vazio div {
+  font-size: 45px;
+}
+
+.carrinho-novo-vazio h3 {
+  color: #111;
+  margin: 10px 0 5px;
+}
+
+.item-novo {
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-novo-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.item-novo-nome {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.item-novo-preco {
+  color: #666;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.item-novo-controles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.item-novo-controles button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 9px !important;
+  background: #000 !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+.item-novo-controles .numero {
+  min-width: 30px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.item-novo-controles .remover-novo {
+  margin-left: auto;
+  background: #222 !important;
+  font-size: 18px !important;
+}
+
+.carrinho-novo-resumo {
+  margin-top: 18px;
+  padding-top: 8px;
+}
+
+.carrinho-novo-resumo > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.carrinho-novo-total {
+  padding-top: 12px;
+  margin-top: 12px !important;
+  border-top: 2px solid #ddd;
+  font-size: 21px;
+}
+
+.finalizar-novo {
+  width: 100%;
+  margin-top: 18px;
+  padding: 15px;
+  border: 0;
+  border-radius: 12px;
+  background: #7b2cff;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+}
+

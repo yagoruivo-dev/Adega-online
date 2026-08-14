@@ -224,5 +224,48 @@
 </main>
 
 <script type="module" src="./src/main.js"></script>
+<script type="module" src="./src/carrinho-novo.js"></script>
 </body>
 </html>
+
+<!-- CARRINHO NOVO -->
+<div id="carrinho-novo" class="carrinho-novo">
+  <div class="carrinho-novo-caixa">
+
+    <div class="carrinho-novo-topo">
+      <h2>🛒 Seu carrinho</h2>
+      <button id="fechar-carrinho-novo">×</button>
+    </div>
+
+    <div id="lista-carrinho-novo">
+      <div class="carrinho-novo-vazio">
+        <div>🛒</div>
+        <h3>Carrinho vazio</h3>
+        <p>Adicione produtos para fazer seu pedido.</p>
+      </div>
+    </div>
+
+    <div class="carrinho-novo-resumo">
+      <div>
+        <span>Produtos</span>
+        <strong id="subtotal-novo">R$ 0,00</strong>
+      </div>
+
+      <div>
+        <span>Entrega</span>
+        <strong>R$ 5,00</strong>
+      </div>
+
+      <div class="carrinho-novo-total">
+        <span>Total</span>
+        <strong id="total-novo">R$ 5,00</strong>
+      </div>
+    </div>
+
+    <button id="finalizar-novo" class="finalizar-novo">
+      Finalizar pedido
+    </button>
+
+  </div>
+</div>
+
