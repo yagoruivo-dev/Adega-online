@@ -332,3 +332,40 @@ footer { background: #111; color: white; text-align:
   letter-spacing: 2px;
 }
 
+
+/* TESTE VISUAL ROXO */
+
+body {
+  background: #09000f;
+  color: white;
+}
+
+.topo {
+  background: linear-gradient(135deg, #12001f, #5b00a8, #180020);
+  box-shadow: 0 5px 30px rgba(139, 44, 255, 0.35);
+}
+
+.logo {
+  color: white;
+  font-weight: 900;
+  text-shadow: 0 0 10px #8b2cff, 0 0 25px #8b2cff;
+}
+
+.produto {
+  background: linear-gradient(145deg, #1d1225, #0d080f);
+  border: 1px solid #6520a0;
+  border-radius: 18px;
+}
+
+.adicionar {
+  background: linear-gradient(135deg, #6d16c9, #b04cff);
+  color: white;
+  border: 0;
+  border-radius: 12px;
+}
+
+.carrinho {
+  background: linear-gradient(135deg, #6d16c9, #b04cff);
+  color: white;
+}
+
