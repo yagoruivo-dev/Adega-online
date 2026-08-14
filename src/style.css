@@ -370,74 +370,42 @@ body {
 }
 
 
-.checkout-caixa,
-.checkout-caixa * {
-  color: #000 !important;
+/* CONTROLES DO CARRINHO */
+.quantidade-carrinho {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
 }
 
-.checkout-caixa input,
-.checkout-caixa select,
-.checkout-caixa textarea {
-  color: #000 !important;
-  background: #fff !important;
+.quantidade-carrinho button {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: #000 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  line-height: 38px !important;
+  text-align: center !important;
+  cursor: pointer !important;
 }
 
-.checkout-caixa input::placeholder,
-.checkout-caixa textarea::placeholder {
-  color: #555 !important;
-  opacity: 1 !important;
+.quantidade-carrinho button[data-acao="aumentar"],
+.quantidade-carrinho button[data-acao="diminuir"] {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 
-
-/* CORREÇÃO DEFINITIVA DO TEXTO DO CHECKOUT */
-.checkout-caixa {
-  color: #000 !important;
-}
-
-.checkout-caixa h2 {
-  color: #000 !important;
-}
-
-.checkout-caixa label {
-  color: #000 !important;
-}
-
-.checkout-caixa .checkout-subtitulo {
-  color: #333 !important;
-}
-
-.checkout-caixa input,
-.checkout-caixa select,
-.checkout-caixa textarea {
+.quantidade-carrinho strong {
   color: #000 !important;
   -webkit-text-fill-color: #000 !important;
-  background-color: #fff !important;
-}
-
-.checkout-caixa input::placeholder,
-.checkout-caixa textarea::placeholder {
-  color: #555 !important;
-  -webkit-text-fill-color: #555 !important;
-}
-
-.resumo-checkout {
-  color: #000 !important;
-}
-
-.resumo-checkout span,
-.resumo-checkout strong {
-  color: #000 !important;
-}
-
-.checkout-total {
-  color: #000 !important;
-}
-
-.checkout-total span,
-.checkout-total strong,
-#checkout-total,
-#checkout-entrega {
-  color: #000 !important;
-  -webkit-text-fill-color: #000 !important;
+  min-width: 25px !important;
+  font-size: 18px !important;
+  text-align: center !important;
 }
 
