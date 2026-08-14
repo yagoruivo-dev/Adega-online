@@ -235,7 +235,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (checkoutModal) {
+
+      // Remove o carrinho novo da tela antes de abrir o checkout
+      const carrinhoNaTela = document.querySelector('#carrinho-novo');
+      if (carrinhoNaTela) {
+        carrinhoNaTela.classList.remove('aberto');
+        carrinhoNaTela.style.display = 'none';
+        carrinhoNaTela.style.visibility = 'hidden';
+        carrinhoNaTela.style.pointerEvents = 'none';
+      }
+
+      checkoutModal.style.display = 'flex';
       checkoutModal.classList.add('aberto');
+
       console.log('CHECKOUT ABERTO');
     } else {
       console.error('CHECKOUT MODAL NAO ENCONTRADO');
