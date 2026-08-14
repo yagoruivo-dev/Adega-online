@@ -12,6 +12,8 @@ const fecharCarrinho = document.querySelector('.fechar-carrinho');
 const finalizarPedido = document.querySelector('.finalizar-pedido');
 
 function atualizarCarrinho() {
+  if (!itensCarrinho || !totalCarrinho || !contadorCarrinho) return;
+
   itensCarrinho.innerHTML = '';
 
   let total = 0;
