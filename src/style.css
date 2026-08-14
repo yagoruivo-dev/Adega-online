@@ -792,3 +792,16 @@ body {
   z-index: 10000 !important;
 }
 
+
+/* CORREÇÃO FINAL: CHECKOUT NA FRENTE */
+.checkout-modal.aberto {
+  display: flex !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+}
+
+.carrinho-novo.aberto {
+  z-index: 9999 !important;
+}
+
