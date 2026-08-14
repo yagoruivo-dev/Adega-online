@@ -1,3 +1,4 @@
+console.log('JS DA ADEGA CARREGOU');
 const carrinho = [];
 
 const produtos = document.querySelectorAll('.produto');
