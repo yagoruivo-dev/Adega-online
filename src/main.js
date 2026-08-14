@@ -12,6 +12,7 @@ const fecharCarrinho = document.querySelector('.fechar-carrinho');
 const finalizarPedido = document.querySelector('.finalizar-pedido');
 
 function atualizarCarrinho() {
+  console.log('TESTE CARRINHO:', carrinho);
   if (!itensCarrinho || !totalCarrinho || !contadorCarrinho) return;
 
   itensCarrinho.innerHTML = '';
