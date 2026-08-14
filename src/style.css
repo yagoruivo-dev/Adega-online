@@ -782,3 +782,13 @@ body {
   cursor: pointer;
 }
 
+
+/* CHECKOUT SEMPRE ACIMA DO CARRINHO */
+.checkout-modal {
+  z-index: 20000 !important;
+}
+
+.carrinho-novo {
+  z-index: 10000 !important;
+}
+
