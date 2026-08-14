@@ -186,10 +186,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 /* FINALIZAR PEDIDO - NOVO */
 document.addEventListener('DOMContentLoaded', () => {
+
   const finalizarNovo = document.querySelector('#finalizar-novo');
   const checkoutModal = document.querySelector('.checkout-modal');
+  const checkoutTotal = document.querySelector('#checkout-total');
+  const checkoutEntrega = document.querySelector('#checkout-entrega');
 
   if (!finalizarNovo) {
     console.error('BOTAO FINALIZAR NAO ENCONTRADO');
@@ -210,13 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
       0
     );
 
-    const total = subtotal + 5;
-
-    const checkoutTotal = document.querySelector('#checkout-total');
-    const checkoutEntrega = document.querySelector('#checkout-entrega');
+    const taxaEntrega = 5;
+    const total = subtotal + taxaEntrega;
 
     if (checkoutEntrega) {
-      checkoutEntrega.textContent = 'R$ 5,00';
+      checkoutEntrega.textContent =
+        'R$ ' + taxaEntrega.toFixed(2).replace('.', ',');
     }
 
     if (checkoutTotal) {
@@ -226,10 +229,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (checkoutModal) {
       checkoutModal.classList.add('aberto');
+      console.log('CHECKOUT ABERTO');
     } else {
       console.error('CHECKOUT MODAL NAO ENCONTRADO');
+      alert('Erro ao abrir o checkout.');
     }
-
-    console.log('FINALIZAR PEDIDO CLICADO');
   });
+
 });
