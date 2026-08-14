@@ -369,3 +369,27 @@ body {
   color: white;
 }
 
+
+/* TEXTO DO CHECKOUT EM PRETO */
+.checkout-modal,
+.checkout-caixa,
+.checkout-caixa h2,
+.checkout-caixa p,
+.checkout-caixa label,
+.checkout-caixa span,
+.checkout-caixa strong {
+  color: #000 !important;
+}
+
+.checkout-caixa input,
+.checkout-caixa select,
+.checkout-caixa textarea {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+.checkout-caixa input::placeholder,
+.checkout-caixa textarea::placeholder {
+  color: #666 !important;
+}
+
